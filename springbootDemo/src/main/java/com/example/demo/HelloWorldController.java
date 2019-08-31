@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,6 +29,8 @@ import oracle.sql.BLOB;
 @Controller
 public class HelloWorldController {
     
+	
+	
 	//页面跳转   页面必须在/src/main/webapp/下
 	@RequestMapping("/info")
 	public String info() {
@@ -40,6 +43,7 @@ public class HelloWorldController {
 	public String ret() {
 		return "aa1";//如果要省略后缀  则src/main/resources/application.properties 配置
 	}
+	
 	
 	
 	
