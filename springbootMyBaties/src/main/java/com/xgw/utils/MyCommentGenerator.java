@@ -11,6 +11,7 @@ import org.mybatis.generator.config.PropertyRegistry;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
+import java.util.Set;
 
 import static org.mybatis.generator.internal.util.StringUtility.isTrue;
 
@@ -247,6 +248,38 @@ public class MyCommentGenerator implements CommentGenerator {
 	public void addModelClassComment(TopLevelClass arg0, IntrospectedTable arg1) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void addClassAnnotation(InnerClass arg0, IntrospectedTable arg1, Set<FullyQualifiedJavaType> arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addFieldAnnotation(Field arg0, IntrospectedTable arg1, Set<FullyQualifiedJavaType> arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addFieldAnnotation(Field arg0, IntrospectedTable arg1, IntrospectedColumn arg2,
+			Set<FullyQualifiedJavaType> arg3) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addGeneralMethodAnnotation(Method arg0, IntrospectedTable arg1, Set<FullyQualifiedJavaType> arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addGeneralMethodAnnotation(Method arg0, IntrospectedTable arg1, IntrospectedColumn arg2,
+			Set<FullyQualifiedJavaType> arg3) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
