@@ -1,3 +1,6 @@
+
+eclipse 运行mybatis-generato 插件命令 mybatis-generator:generate -X
+
 1遇到问题   在eclipse安装mybatis-generator插件后   使用它生成没有反应   代码没有生成
 2使用java程序或运行 mybatis-generator 命令  生成的代码没有注释  及实体的属性类型 没有和数据库类型对应上 如数据库的字符串类型    实体的属性却变成object
 3数据库字段 对应注释 没有生成
@@ -34,6 +37,7 @@
    https://www.cnblogs.com/6324/p/10903960.html(测试通过)
 15 java.sql.SQLException: ORA-01017: invalid username/password; logon denied  前提 用户名和密码是对的  却报不正确
    application.properties 中将spring.datasource.username写成spring.datasource.name
+16 提供springboot事务的支持
    
 计划要点
 Spring Boot集成MyBatis分页插件_pagehelper

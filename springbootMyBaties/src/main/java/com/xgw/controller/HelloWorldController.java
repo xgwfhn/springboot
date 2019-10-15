@@ -49,6 +49,12 @@ public class HelloWorldController {
 	}
 	
 	
+	@ResponseBody
+	@RequestMapping("/update")
+	public Object update() {
+		return serive.update();//如果要省略后缀  则src/main/resources/application.properties 配置
+	}
+	
 	
 	
 
