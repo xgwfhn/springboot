@@ -1,0 +1,8 @@
+package com.xgw.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class RestFullController {
+
+}
