@@ -2,8 +2,9 @@ package com.xgw.mapper;
 
 import java.util.List;
 
-import com.xgw.model.Role;
+import org.mybatis.spring.annotation.MapperScan;
 
+import com.xgw.model.Role;
 public interface RoleMapper {
     int deleteByPrimaryKey(Object id);
 
