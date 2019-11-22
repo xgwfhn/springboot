@@ -25,35 +25,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.xgw.service.TestService;
 
 import oracle.sql.BLOB;
 
 @Controller
 public class HelloWorldController {
-    @Autowired
-	private TestService serive;
+ 
 	
 	//页面跳转   页面必须在/src/main/webapp/下
-	@RequestMapping("/info")
+	@RequestMapping("/info") 
 	public String info() {
 		System.out.println("1111111111");
 		return "aa";//如果要省略后缀  则src/main/resources/application.properties 配置
 	}
 	
-	
-	@ResponseBody
-	@RequestMapping("/getTest")
-	public Object ret() {
-		return serive.getAllTest();//如果要省略后缀  则src/main/resources/application.properties 配置
-	}
-	
-	
-	@ResponseBody
-	@RequestMapping("/update")
-	public Object update() {
-		return serive.update();//如果要省略后缀  则src/main/resources/application.properties 配置
-	}
 	
 	
 	
