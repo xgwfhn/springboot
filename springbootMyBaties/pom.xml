@@ -139,6 +139,24 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			<!-- 以下跳过测试编译的插件如果使用  则junit在运行时会找不到相关测试类 -->
+			<!-- <plugin>
+				<artifactId>maven-compiler-plugin</artifactId>跳过junit 方法 测试
+				<version>3.3</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<skip>true</skip>   
+				</configuration>
+			</plugin> -->
+			<!--  <plugin>   
+			    <groupId>org.apache.maven.plugins</groupId>   
+			    <artifactId>maven-surefire-plugin</artifactId>跳过junit 代码编译 测试   
+			    <version>2.22.2</version>   
+			    <configuration>   
+			        <skip>true</skip>   
+			    </configuration>   
+			</plugin>  -->
 			
 			<plugin>
                     <groupId>org.mybatis.generator</groupId>

@@ -38,6 +38,36 @@ eclipse 运行mybatis-generato 插件命令 mybatis-generator:generate -X
 15 java.sql.SQLException: ORA-01017: invalid username/password; logon denied  前提 用户名和密码是对的  却报不正确
    application.properties 中将spring.datasource.username写成spring.datasource.name
 16 提供springboot事务的支持
-   
+
+17 @Mapper注解的使用 (在mapper中添加sql语句) 从mybatis3.4.0开始加入了@Mapper注解
+
+18 控制台打印sql语句   
 计划要点
 Spring Boot集成MyBatis分页插件_pagehelper
+
+配置
+	端口,上下文的配置，映射文件,数据库连接等配置	
+测试
+	新增
+		注解,配置方式插入
+		批量插入
+	修改
+	删除
+	查询
+	页面跳转
+	通过http访问 项目  获取json字符串
+问题
+	Could not write metadata for '/Servers'.   https://blog.csdn.net/qq_32332777/article/details/52836218(测试通过)
+	Consider defining a bean of type 'com.xgw.mapper.TestMapper' in your configuration.  前提是 TestMapper已经添加@Mapper 但是还找不到
+		在springboot 启动类中添加mapper包扫描  @MapperScan({"com.xgw.mapper"})  mapper中可以不用添加@Mapper注解(测试通过)
+	Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation
+		https://www.cnblogs.com/6324/p/10903960.html(测试通过)
+	java.sql.SQLException: ORA-01017: invalid username/password; logon denied  前提 用户名和密码是对的  却报不正确
+		application.properties 中将spring.datasource.username写成spring.datasource.name
+	Caused by: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.xgw.mapper.RoleMapper.BaseResultMap
+		https://blog.csdn.net/qq_41378597/article/details/83900060(测试通过)
+	RoleMapper.xml  在采用mybatis-generator 生成代码前 要先将映射文件 删除  否则会在此文件上 累加 生成的代码  造成启动报错 
+	中文乱码
+	IDEA解决Maven项目编译后classes文件中没有.xml,JSP问题,eclipse可以不用配置
+	找不到测试类
+		
