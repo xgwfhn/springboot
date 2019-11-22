@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgw.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.xgw.model.User">
+    <id column="ID" jdbcType="OTHER" property="id" />
+    <result column="EMAIL" jdbcType="OTHER" property="email" />
+    <result column="MOBILEPHONE" jdbcType="OTHER" property="mobilephone" /> 
+    <result column="OFFICEPHONE" jdbcType="OTHER" property="officephone" />
+    <result column="SIGNATUREFILE" jdbcType="OTHER" property="signaturefile" />
+    <result column="UPDATE_NAME" jdbcType="OTHER" property="updateName" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_BY" jdbcType="OTHER" property="updateBy" />
+    <result column="CREATE_NAME" jdbcType="OTHER" property="createName" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_BY" jdbcType="OTHER" property="createBy" />
+    <result column="PORTRAIT" jdbcType="OTHER" property="portrait" />
+    <result column="IMSIGN" jdbcType="OTHER" property="imsign" />
+    <result column="DEV_FLAG" jdbcType="OTHER" property="devFlag" />
+    <result column="USER_TYPE" jdbcType="OTHER" property="userType" />
+    <result column="PERSON_TYPE" jdbcType="OTHER" property="personType" />
+    <result column="SEX" jdbcType="OTHER" property="sex" />
+    <result column="EMP_NO" jdbcType="OTHER" property="empNo" />
+    <result column="CITIZEN_NO" jdbcType="OTHER" property="citizenNo" />
+    <result column="FAX" jdbcType="OTHER" property="fax" />
+    <result column="ADDRESS" jdbcType="OTHER" property="address" />
+    <result column="POST" jdbcType="OTHER" property="post" />
+    <result column="MEMO" jdbcType="OTHER" property="memo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, EMAIL, MOBILEPHONE, OFFICEPHONE, SIGNATUREFILE, UPDATE_NAME, UPDATE_DATE, UPDATE_BY, 
+    CREATE_NAME, CREATE_DATE, CREATE_BY, PORTRAIT, IMSIGN, DEV_FLAG, USER_TYPE, PERSON_TYPE, 
+    SEX, EMP_NO, CITIZEN_NO, FAX, ADDRESS, POST, MEMO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_S_USER
+    where ID = #{id,jdbcType=OTHER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from T_S_USER
+    where ID = #{id,jdbcType=OTHER}
+  </delete>
+  <insert id="insert" parameterType="com.xgw.model.User">
+    insert into T_S_USER (ID, EMAIL, MOBILEPHONE, 
+      OFFICEPHONE, SIGNATUREFILE, UPDATE_NAME, 
+      UPDATE_DATE, UPDATE_BY, CREATE_NAME, 
+      CREATE_DATE, CREATE_BY, PORTRAIT, 
+      IMSIGN, DEV_FLAG, USER_TYPE, 
+      PERSON_TYPE, SEX, EMP_NO, CITIZEN_NO, 
+      FAX, ADDRESS, POST, MEMO
+      )
+    values (#{id,jdbcType=OTHER}, #{email,jdbcType=OTHER}, #{mobilephone,jdbcType=OTHER}, 
+      #{officephone,jdbcType=OTHER}, #{signaturefile,jdbcType=OTHER}, #{updateName,jdbcType=OTHER}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=OTHER}, #{createName,jdbcType=OTHER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{createBy,jdbcType=OTHER}, #{portrait,jdbcType=OTHER}, 
+      #{imsign,jdbcType=OTHER}, #{devFlag,jdbcType=OTHER}, #{userType,jdbcType=OTHER}, 
+      #{personType,jdbcType=OTHER}, #{sex,jdbcType=OTHER}, #{empNo,jdbcType=OTHER}, #{citizenNo,jdbcType=OTHER}, 
+      #{fax,jdbcType=OTHER}, #{address,jdbcType=OTHER}, #{post,jdbcType=OTHER}, #{memo,jdbcType=OTHER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xgw.model.User">
+   <selectKey resultType="String"  keyProperty="id" order="BEFORE">
+	   select sys_guid() from dual
+	 </selectKey>
+    insert into T_S_USER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="mobilephone != null">
+        MOBILEPHONE,
+      </if>
+      <if test="officephone != null">
+        OFFICEPHONE,
+      </if>
+      <if test="signaturefile != null">
+        SIGNATUREFILE,
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="createName != null">
+        CREATE_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="portrait != null">
+        PORTRAIT,
+      </if>
+      <if test="imsign != null">
+        IMSIGN,
+      </if>
+      <if test="devFlag != null">
+        DEV_FLAG,
+      </if>
+      <if test="userType != null">
+        USER_TYPE,
+      </if>
+      <if test="personType != null">
+        PERSON_TYPE,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="empNo != null">
+        EMP_NO,
+      </if>
+      <if test="citizenNo != null">
+        CITIZEN_NO,
+      </if>
+      <if test="fax != null">
+        FAX,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="post != null">
+        POST,
+      </if>
+      <if test="username != null">
+        USERNAME
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=OTHER},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=OTHER},
+      </if>
+      <if test="mobilephone != null">
+        #{mobilephone,jdbcType=OTHER},
+      </if>
+      <if test="officephone != null">
+        #{officephone,jdbcType=OTHER},
+      </if>
+      <if test="signaturefile != null">
+        #{signaturefile,jdbcType=OTHER},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=OTHER},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=OTHER},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=OTHER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=OTHER},
+      </if>
+      <if test="portrait != null">
+        #{portrait,jdbcType=OTHER},
+      </if>
+      <if test="imsign != null">
+        #{imsign,jdbcType=OTHER},
+      </if>
+      <if test="devFlag != null">
+        #{devFlag,jdbcType=OTHER},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=OTHER},
+      </if>
+      <if test="personType != null">
+        #{personType,jdbcType=OTHER},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=OTHER},
+      </if>
+      <if test="empNo != null">
+        #{empNo,jdbcType=OTHER},
+      </if>
+      <if test="citizenNo != null">
+        #{citizenNo,jdbcType=OTHER},
+      </if>
+      <if test="fax != null">
+        #{fax,jdbcType=OTHER},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=OTHER},
+      </if>
+      <if test="post != null">
+        #{post,jdbcType=OTHER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=OTHER}
+      </if>
+    </trim>
+  </insert>
+ 
+	
+  <insert id="insertBatch"  keyProperty="id">
+       INSERT ALL
+      <foreach collection="list" item="item" index="index"  >
+          into T_S_USER (ID,DEV_FLAG,EMP_NO,SEX,USERNAME) values  ((select sys_guid() as id from dual),#{item.devFlag},#{item.empNo},#{item.sex},#{item.username})
+      </foreach>
+      SELECT * FROM dual
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.xgw.model.User">
+    update T_S_USER
+    <set>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=OTHER},
+      </if>
+      <if test="mobilephone != null">
+        MOBILEPHONE = #{mobilephone,jdbcType=OTHER},
+      </if>
+      <if test="officephone != null">
+        OFFICEPHONE = #{officephone,jdbcType=OTHER},
+      </if>
+      <if test="signaturefile != null">
+        SIGNATUREFILE = #{signaturefile,jdbcType=OTHER},
+      </if>
+      <if test="updateName != null">
+        UPDATE_NAME = #{updateName,jdbcType=OTHER},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY = #{updateBy,jdbcType=OTHER},
+      </if>
+      <if test="createName != null">
+        CREATE_NAME = #{createName,jdbcType=OTHER},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        CREATE_BY = #{createBy,jdbcType=OTHER},
+      </if>
+      <if test="portrait != null">
+        PORTRAIT = #{portrait,jdbcType=OTHER},
+      </if>
+      <if test="imsign != null">
+        IMSIGN = #{imsign,jdbcType=OTHER},
+      </if>
+      <if test="devFlag != null">
+        DEV_FLAG = #{devFlag,jdbcType=OTHER},
+      </if>
+      <if test="userType != null">
+        USER_TYPE = #{userType,jdbcType=OTHER},
+      </if>
+      <if test="personType != null">
+        PERSON_TYPE = #{personType,jdbcType=OTHER},
+      </if>
+      <if test="sex != null">
+        SEX = #{sex,jdbcType=OTHER},
+      </if>
+      <if test="empNo != null">
+        EMP_NO = #{empNo,jdbcType=OTHER},
+      </if>
+      <if test="citizenNo != null">
+        CITIZEN_NO = #{citizenNo,jdbcType=OTHER},
+      </if>
+      <if test="fax != null">
+        FAX = #{fax,jdbcType=OTHER},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=OTHER},
+      </if>
+      <if test="post != null">
+        POST = #{post,jdbcType=OTHER},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=OTHER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=OTHER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xgw.model.User">
+    update T_S_USER
+    set EMAIL = #{email,jdbcType=OTHER},
+      MOBILEPHONE = #{mobilephone,jdbcType=OTHER},
+      OFFICEPHONE = #{officephone,jdbcType=OTHER},
+      SIGNATUREFILE = #{signaturefile,jdbcType=OTHER},
+      UPDATE_NAME = #{updateName,jdbcType=OTHER},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      UPDATE_BY = #{updateBy,jdbcType=OTHER},
+      CREATE_NAME = #{createName,jdbcType=OTHER},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      CREATE_BY = #{createBy,jdbcType=OTHER},
+      PORTRAIT = #{portrait,jdbcType=OTHER},
+      IMSIGN = #{imsign,jdbcType=OTHER},
+      DEV_FLAG = #{devFlag,jdbcType=OTHER},
+      USER_TYPE = #{userType,jdbcType=OTHER},
+      PERSON_TYPE = #{personType,jdbcType=OTHER},
+      SEX = #{sex,jdbcType=OTHER},
+      EMP_NO = #{empNo,jdbcType=OTHER},
+      CITIZEN_NO = #{citizenNo,jdbcType=OTHER},
+      FAX = #{fax,jdbcType=OTHER},
+      ADDRESS = #{address,jdbcType=OTHER},
+      POST = #{post,jdbcType=OTHER},
+      MEMO = #{memo,jdbcType=OTHER}
+    where ID = #{id,jdbcType=OTHER}
+  </update>
+</mapper>
