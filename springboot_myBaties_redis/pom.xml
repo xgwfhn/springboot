@@ -132,6 +132,7 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
+			<!-- 以下跳过测试编译的插件如果使用  则junit在运行时会找不到相关测试类 -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId><!-- 跳过junit 方法 测试 -->
 				<version>3.3</version>
@@ -166,7 +167,6 @@
                          <configurationFile>${basedir}/src/main/resources/generator/generatorConfig.xml</configurationFile> 
                         <verbose>false</verbose>
                         <overwrite>false</overwrite>
-                        
                     </configuration>
                     <!-- <executions>
 					    <execution>
